@@ -1,0 +1,2705 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Mukesh Prajapati | Full Stack Developer</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Be+Vietnam+Pro:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+/>
+  <!-- Material Icons -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Devicon -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+  />
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+
+      theme: {
+        extend: {
+          colors: {
+            primary: "#0ABF0B",
+            "primary-container": "#0ABF0B",
+            "on-primary": "#ffffff",
+
+            secondary: "#ae2f34",
+            "secondary-container": "#ff6b6b",
+            "on-secondary": "#ffffff",
+
+            tertiary: "#005766",
+            "tertiary-container": "#007184",
+            "on-tertiary": "#ffffff",
+
+            background: "#faf8ff",
+            "on-background": "#131b2e",
+
+            surface: "#faf8ff",
+            "surface-bright": "#faf8ff",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f2f3ff",
+            "surface-container": "#eaedff",
+            "surface-container-high": "#e2e7ff",
+            "surface-container-highest": "#dae2fd",
+
+            "on-surface": "#131b2e",
+            "on-surface-variant": "#4a4455",
+
+            "primary-fixed": "#eaddff",
+            "primary-fixed-dim": "#d2bbff",
+
+            "secondary-fixed": "#ffdad8",
+            "secondary-fixed-dim": "#ffb3b0",
+
+            "tertiary-fixed": "#acedff",
+            "tertiary-fixed-dim": "#4cd7f6",
+
+            "outline": "#7b7487",
+            "outline-variant": "#ccc3d8",
+
+            error: "#ba1a1a",
+            "error-container": "#ffdad6",
+            "on-error": "#ffffff",
+
+            "inverse-surface": "#283044",
+            "inverse-on-surface": "#eef0ff",
+            "inverse-primary": "#d2bbff"
+          },
+
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px"
+          },
+
+          spacing: {
+            gutter: "24px",
+            "container-max": "1280px",
+            unit: "8px",
+            "margin-mobile": "16px",
+            "margin-desktop": "40px"
+          },
+
+          fontFamily: {
+            "headline-lg-mobile": ["Montserrat"],
+            "label-bold": ["Montserrat"],
+            "headline-lg": ["Montserrat"],
+            "display-lg": ["Montserrat"],
+            "display-lg-mobile": ["Montserrat"],
+            "body-lg": ["Be Vietnam Pro"],
+            "body-md": ["Be Vietnam Pro"]
+          },
+
+          fontSize: {
+            "headline-lg-mobile": [
+              "28px",
+              {
+                lineHeight: "1.2",
+                fontWeight: "700"
+              }
+            ],
+
+            "headline-lg": [
+              "32px",
+              {
+                lineHeight: "1.2",
+                fontWeight: "700"
+              }
+            ],
+
+            "display-lg": [
+              "56px",
+              {
+                lineHeight: "1.1",
+                letterSpacing: "-0.02em",
+                fontWeight: "800"
+              }
+            ],
+
+            "display-lg-mobile": [
+              "40px",
+              {
+                lineHeight: "1.1",
+                letterSpacing: "-0.02em",
+                fontWeight: "800"
+              }
+            ],
+
+            "body-lg": [
+              "18px",
+              {
+                lineHeight: "1.6",
+                fontWeight: "400"
+              }
+            ],
+
+            "body-md": [
+              "16px",
+              {
+                lineHeight: "1.6",
+                fontWeight: "400"
+              }
+            ],
+
+            "label-bold": [
+              "14px",
+              {
+                lineHeight: "1",
+                letterSpacing: "0.05em",
+                fontWeight: "700"
+              }
+            ]
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* ===============================
+       GLOBAL
+    =============================== */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+    }
+
+    /* ===============================
+       GLASS CARD
+    =============================== */
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.65);
+      border: 1px solid rgba(99, 14, 212, 0.10);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 10px 40px rgba(99, 14, 212, 0.06);
+    }
+
+    .dark .glass-card {
+      background: rgba(24, 28, 45, 0.72);
+      border-color: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    /* ===============================
+       DARK MODE
+    =============================== */
+
+    .dark body {
+      background: #090d18;
+      color: #f1f3ff;
+    }
+
+    .dark .bg-white {
+      background-color: #0f1422 !important;
+    }
+
+    .dark .bg-surface {
+      background-color: #0f1422 !important;
+    }
+
+    .dark .bg-surface-container-low {
+      background-color: #101522 !important;
+    }
+
+    .dark .bg-surface-container {
+      background-color: #161b2b !important;
+    }
+
+    .dark .bg-surface-container-high {
+      background-color: #1b2133 !important;
+    }
+
+    .dark .bg-surface-container-highest {
+      background-color: #232a3d !important;
+    }
+
+    /* ===============================
+       GRADIENT TEXT
+    =============================== */
+
+    .gradient-text {
+      background: linear-gradient(
+        90deg,
+        #630ed4,
+        #ae2f34,
+        #007184
+      );
+      
+
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+   
+    /* ===============================
+       KINETIC GRADIENT
+    =============================== */
+
+    .kinetic-gradient {
+      background:
+        linear-gradient(
+          135deg,
+          #630ed4,
+          #ae2f34,
+          #007184
+        );
+      background-size: 200% 200%;
+      animation: gradientMove 8s ease infinite;
+    }
+
+    @keyframes gradientMove {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* ===============================
+       FLOATING
+    =============================== */
+
+    .floating {
+      animation: floating 4s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    /* ===============================
+       MOBILE MENU
+    =============================== */
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      padding: 16px;
+      background: rgba(250, 248, 255, 0.96);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(99, 14, 212, 0.08);
+    }
+
+    .dark .mobile-menu {
+      background: rgba(9, 13, 24, 0.96);
+    }
+
+    .mobile-menu.show {
+      display: flex;
+    }
+
+    /* ===============================
+       MASONRY
+    =============================== */
+
+    .masonry {
+      columns: 1;
+      column-gap: 24px;
+    }
+
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .masonry {
+        columns: 2;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .masonry {
+        columns: 3;
+      }
+    }
+
+    /* ===============================
+       LIGHTBOX
+    =============================== */
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      padding: 20px;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      border-radius: 20px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 25px;
+      right: 30px;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: white;
+      color: black;
+      font-size: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body
+  class="bg-background text-on-background font-body-md selection:bg-primary selection:text-white"
+>
+
+  <!-- ==================================================
+       NAVBAR
+  ================================================== -->
+
+  <nav
+    class="fixed top-0 w-full z-50
+           bg-surface/80 dark:bg-[#090d18]/80
+           backdrop-blur-xl
+           border-b border-primary/10
+           shadow-[0_8px_32px_rgba(99,14,212,0.15)]"
+  >
+
+    <div
+      class="flex justify-between items-center
+             px-4 md:px-10 py-4
+             max-w-container-max mx-auto"
+    >
+
+      <!-- Logo -->
+
+      <a
+        href="#"
+        class="font-display-lg text-headline-lg-mobile
+               md:text-headline-lg tracking-tighter
+               text-primary"
+      >
+        MUKESH
+      </a>
+
+      <!-- Desktop Navigation -->
+
+      <div class="hidden md:flex items-center gap-8">
+
+        <a
+          href="#work"
+          class="text-primary border-b-2 border-primary
+                 pb-1 font-label-bold text-label-bold"
+        >
+          Work
+        </a>
+
+        <a
+          href="#about"
+          class="text-on-surface-variant
+                 hover:text-primary
+                 font-label-bold text-label-bold
+                 transition-colors"
+        >
+          About
+        </a>
+
+        <a
+          href="#contact"
+          class="text-on-surface-variant
+                 hover:text-primary
+                 font-label-bold text-label-bold
+                 transition-colors"
+        >
+          Contact
+        </a>
+
+      </div>
+
+      <!-- Right Side -->
+
+      <div class="flex items-center gap-3">
+
+        <!-- Theme Toggle -->
+
+        <button
+          id="themeToggle"
+          aria-label="Toggle dark mode"
+          class="w-10 h-10 rounded-full
+                 bg-primary/10 text-primary
+                 flex items-center justify-center
+                 hover:bg-primary/20
+                 hover:scale-105
+                 transition-all"
+        >
+
+          <span
+            id="themeIcon"
+            class="material-symbols-outlined"
+          >
+            dark_mode
+          </span>
+
+        </button>
+
+        <!-- Chat -->
+
+        <a
+          href="#contact"
+          class="bg-primary-container text-on-primary
+                 font-label-bold text-label-bold
+                 px-6 py-2 rounded-full
+                 hover:scale-105 active:scale-95
+                 transition-all shadow-lg
+                 hidden md:inline-block"
+        >
+          Let's Chat
+        </a>
+
+        <!-- Mobile Menu -->
+
+        <button
+          id="menuToggle"
+          class="md:hidden text-primary
+                 p-2 rounded-full
+                 hover:bg-primary/10"
+          aria-label="Toggle menu"
+        >
+          <span class="material-symbols-outlined text-3xl">
+            menu
+          </span>
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- Mobile Menu -->
+
+    <div id="mobileMenu" class="mobile-menu md:hidden">
+
+      <a
+        href="#work"
+        class="text-primary font-label-bold py-2"
+      >
+        Work
+      </a>
+
+      <a
+        href="#about"
+        class="text-on-surface-variant
+               font-label-bold py-2"
+      >
+        About
+      </a>
+
+      <a
+        href="#contact"
+        class="text-on-surface-variant
+               font-label-bold py-2"
+      >
+        Contact
+      </a>
+
+      <a
+        href="#contact"
+        class="bg-primary text-white
+               text-center py-3 rounded-full
+               font-semibold mt-2"
+      >
+        Let's Chat
+      </a>
+
+    </div>
+
+  </nav>
+
+
+  <!-- ==================================================
+       MAIN
+  ================================================== -->
+
+  <main class="overflow-hidden">
+
+    <!-- ==================================================
+         HERO
+    ================================================== -->
+
+    <section
+      class="relative pt-24 min-h-[80vh]
+             flex items-center
+             px-4 md:px-10
+             max-w-container-max
+             mx-auto py-12"
+    >
+
+      <!-- Background -->
+
+      <div
+        class="absolute top-1/4 -left-20
+               w-64 h-64
+               bg-primary/20
+               rounded-full blur-3xl animate-pulse"
+      ></div>
+
+      <div
+        class="absolute bottom-1/4 -right-20
+               w-80 h-80
+               bg-secondary/20
+               rounded-full blur-3xl animate-pulse"
+      ></div>
+
+
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2
+               gap-12 items-center
+               relative z-10 w-full"
+      >
+
+        <!-- Hero Content -->
+
+        <div class="space-y-8">
+
+          <h1
+            class="font-display-lg-mobile
+                   md:font-display-lg
+                   text-display-lg-mobile
+                   md:text-display-lg
+                   leading-none"
+          >
+
+            <span class="block">
+              FULL STACK
+            </span>
+
+            <span class="gradient-text block">
+              DEVELOPER
+            </span>
+
+          </h1>
+
+
+          <p
+            class="font-body-lg
+                   text-body-lg
+                   text-on-surface-variant
+                   max-w-lg"
+          >
+            I'm a passionate Full Stack Developer with 4+
+            years  of experience building responsive,
+            high-performance web applications.
+          </p>
+
+
+          <div class="flex flex-wrap gap-4">
+
+            <a
+              href="#work"
+              class="px-8 py-4
+                     bg-primary text-white
+                     font-label-bold
+                     rounded-full
+                     shadow-[0_4px_20px_rgba(99,14,212,0.3)]
+                     hover:-translate-y-1
+                     transition-all"
+            >
+              View Projects
+            </a>
+
+            <!-- <a
+              href="#about"
+              class="px-8 py-4
+                     border-2 border-primary
+                     text-primary
+                     font-label-bold
+                     rounded-full
+                     hover:bg-primary/5
+                     transition-all"
+            >
+              My Skills
+            </a> -->
+            <a
+             href="https://drive.google.com/file/d/1a-b1c3QQuWI7s-E-OIJ-4aek4Y_s5akv/view?usp=sharing"
+                     class="px-8 py-4
+                     border-2 border-primary
+                     text-primary
+                     font-label-bold
+                     rounded-full
+                     hover:bg-primary/5
+                     transition-all"
+            >
+              Download Resume
+            </a>
+            
+
+          </div>
+
+        </div>
+
+
+        <!-- Hero Image -->
+
+        <div class="relative">
+
+          <div
+            class="absolute -top-10 -right-10
+                   w-24 h-24
+                   kinetic-gradient
+                   rounded-2xl rotate-12
+                   floating"
+          ></div>
+
+          <div
+            class="absolute bottom-0 -left-10
+                   w-32 h-32
+                   bg-tertiary-container
+                   rounded-full
+                   floating opacity-50"
+          ></div>
+
+
+          <div
+            class="relative z-9
+                   rounded-full
+                   overflow-hidden
+                   shadow-2xl
+                   border-4 border-white/50
+                   dark:border-white/10"
+          >
+
+            <img
+              src="images/Banner3.png"
+              alt="Mukesh Prajapati"
+              class="w-full h-auto
+                     object-cover aspect-square"
+            />
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         SKILLS
+    ================================================== -->
+
+    <section
+      id="about"
+      class="py-24
+             bg-surface-container-low"
+    >
+
+      <div
+        class="px-4 md:px-10
+               max-w-container-max
+               mx-auto"
+      >
+
+        <!-- Heading -->
+
+        <div class="text-center mb-16">
+
+          <h2
+            class="font-headline-lg-mobile
+                   md:font-headline-lg
+                   text-headline-lg-mobile
+                   md:text-headline-lg
+                   mb-4"
+          >
+            Technical Expertise
+          </h2>
+
+          <p
+            class="text-on-surface-variant
+                   max-w-2xl mx-auto"
+          >
+            Building modern, scalable and high-performance
+            applications using today's most powerful
+            technologies.
+          </p>
+
+        </div>
+
+
+        <!-- Skills Grid -->
+
+        <div
+          class="grid
+                 grid-cols-2
+                 sm:grid-cols-3
+                 md:grid-cols-4
+                 lg:grid-cols-6
+                 gap-4"
+        >
+
+          <!-- React -->
+
+          <div class="glass-card p-4 rounded-2xl
+                      flex flex-col items-center
+                      gap-3 hover:-translate-y-1
+                      transition-all group">
+
+            <i
+              class="devicon-react-original colored
+                     text-3xl
+                     group-hover:scale-110
+                     transition-transform"
+            ></i>
+
+            <span class="text-sm font-medium">
+              React.js
+            </span>
+
+          </div>
+
+
+          <!-- Angular -->
+
+          <div class="glass-card p-4 rounded-2xl
+                      flex flex-col items-center
+                      gap-3 hover:-translate-y-1
+                      transition-all group">
+
+            <i
+              class="devicon-angularjs-plain colored
+                     text-3xl
+                     group-hover:scale-110
+                     transition-transform"
+            ></i>
+
+            <span class="text-sm font-medium">
+              Angular
+            </span>
+
+          </div>
+
+
+          <!-- Next.js -->
+
+          <div class="glass-card p-4 rounded-2xl
+                      flex flex-col items-center
+                      gap-3 hover:-translate-y-1
+                      transition-all group">
+
+            <i
+              class="devicon-nextjs-plain
+                     text-3xl
+                     group-hover:scale-110
+                     transition-transform"
+            ></i>
+
+            <span class="text-sm font-medium">
+              Next.js
+            </span>
+
+          </div>
+
+
+          <!-- JavaScript -->
+
+          <div class="glass-card p-4 rounded-2xl
+                      flex flex-col items-center
+                      gap-3 hover:-translate-y-1
+                      transition-all group">
+
+            <i
+              class="devicon-javascript-plain colored
+                     text-3xl
+                     group-hover:scale-110
+                     transition-transform"
+            ></i>
+
+            <span class="text-sm font-medium">
+              JavaScript
+            </span>
+
+          </div>
+
+
+          <!-- TypeScript -->
+
+          <div class="glass-card p-4 rounded-2xl
+                      flex flex-col items-center
+                      gap-3 hover:-translate-y-1
+                      transition-all group">
+
+            <i
+              class="devicon-typescript-plain colored
+                     text-3xl
+                     group-hover:scale-110
+                     transition-transform"
+            ></i>
+
+            <span class="text-sm font-medium">
+              TypeScript
+            </span>
+
+          </div>
+
+
+          <!-- Redux -->
+
+          <div class="glass-card p-4 rounded-2xl
+                      flex flex-col items-center
+                      gap-3 hover:-translate-y-1
+                      transition-all group">
+
+            <i
+              class="devicon-redux-original colored
+                     text-3xl
+                     group-hover:scale-110
+                     transition-transform"
+            ></i>
+
+            <span class="text-sm font-medium">
+              Redux Toolkit
+            </span>
+
+          </div>
+
+
+          <!-- Node -->
+
+          <div class="glass-card p-4 rounded-2xl
+                      flex flex-col items-center
+                      gap-3 hover:-translate-y-1
+                      transition-all group">
+
+            <i
+              class="devicon-nodejs-plain colored
+                     text-3xl
+                     group-hover:scale-110
+                     transition-transform"
+            ></i>
+
+            <span class="text-sm font-medium">
+              Node.js
+            </span>
+
+          </div>
+
+
+          <!-- Express -->
+
+          <div class="glass-card p-4 rounded-2xl
+                      flex flex-col items-center
+                      gap-3 hover:-translate-y-1
+                      transition-all group">
+
+            <i
+              class="devicon-express-original
+                     text-3xl
+                     group-hover:scale-110
+                     transition-transform"
+            ></i>
+
+            <span class="text-sm font-medium">
+              Express.js
+            </span>
+
+          </div>
+
+
+          <!-- Java -->
+
+          <div class="glass-card p-4 rounded-2xl
+                      flex flex-col items-center
+                      gap-3 hover:-translate-y-1
+                      transition-all group">
+
+            <i
+              class="devicon-java-plain colored
+                     text-3xl
+                     group-hover:scale-110
+                     transition-transform"
+            ></i>
+
+            <span class="text-sm font-medium">
+              Java
+            </span>
+
+          </div>
+
+
+          <!-- Spring Boot -->
+
+          <div class="glass-card p-4 rounded-2xl
+                      flex flex-col items-center
+                      gap-3 hover:-translate-y-1
+                      transition-all group">
+
+            <i
+              class="devicon-spring-original colored
+                     text-3xl
+                     group-hover:scale-110
+                     transition-transform"
+            ></i>
+
+            <span class="text-sm font-medium">
+              Spring Boot
+            </span>
+
+          </div>
+
+
+          <!-- MongoDB -->
+
+          <div class="glass-card p-4 rounded-2xl
+                      flex flex-col items-center
+                      gap-3 hover:-translate-y-1
+                      transition-all group">
+
+            <i
+              class="devicon-mongodb-plain colored
+                     text-3xl
+                     group-hover:scale-110
+                     transition-transform"
+            ></i>
+
+            <span class="text-sm font-medium">
+              MongoDB
+            </span>
+
+          </div>
+
+
+          <!-- MySQL -->
+
+          <div class="glass-card p-4 rounded-2xl
+                      flex flex-col items-center
+                      gap-3 hover:-translate-y-1
+                      transition-all group">
+
+            <i
+              class="devicon-mysql-original colored
+                     text-3xl
+                     group-hover:scale-110
+                     transition-transform"
+            ></i>
+
+            <span class="text-sm font-medium">
+              MySQL
+            </span>
+
+          </div>
+
+<div class="glass-card p-4 rounded-2xl 
+            flex flex-col items-center 
+            gap-3 hover:-translate-y-1 
+            transition-all group">
+
+  <i class="fas fa-network-wired text-3xl
+          group-hover:scale-110
+          transition-transform"></i>
+
+  <span class="text-sm font-medium">
+    Microservices
+  </span>
+
+</div>
+          <!-- Docker -->
+
+          <div class="glass-card p-4 rounded-2xl
+                      flex flex-col items-center
+                      gap-3 hover:-translate-y-1
+                      transition-all group">
+
+            <i
+              class="devicon-docker-plain colored
+                     text-3xl
+                     group-hover:scale-110
+                     transition-transform"
+            ></i>
+
+            <span class="text-sm font-medium">
+              Docker
+            </span>
+
+          </div>
+
+
+          <!-- AWS -->
+
+          <div class="glass-card p-4 rounded-2xl
+                      flex flex-col items-center
+                      gap-3 hover:-translate-y-1
+                      transition-all group">
+
+            <i
+              class="devicon-amazonwebservices-plain-wordmark
+                     colored text-3xl
+                     group-hover:scale-110
+                     transition-transform"
+            ></i>
+
+            <span class="text-sm font-medium">
+              AWS
+            </span>
+
+          </div>
+
+
+          <!-- Git -->
+
+          <div class="glass-card p-4 rounded-2xl
+                      flex flex-col items-center
+                      gap-3 hover:-translate-y-1
+                      transition-all group">
+
+            <i
+              class="devicon-git-plain colored
+                     text-3xl
+                     group-hover:scale-110
+                     transition-transform"
+            ></i>
+
+            <span class="text-sm font-medium">
+              Git
+            </span>
+
+          </div>
+
+
+
+          <!-- React Native -->
+
+          <div class="glass-card p-4 rounded-2xl
+                      flex flex-col items-center
+                      gap-3 hover:-translate-y-1
+                      transition-all group">
+
+            <i
+              class="devicon-react-original colored
+                     text-3xl
+                     group-hover:scale-110
+                     transition-transform"
+            ></i>
+
+            <span class="text-sm font-medium">
+              React Native
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         BENTO SECTION
+    ================================================== -->
+
+    <section
+      class="bg-surface-container-low
+             grid grid-cols-1 md:grid-cols-4
+             gap-4
+             px-4 md:px-10
+             max-w-container-max
+             mx-auto py-8"
+    >
+
+      <!-- Main -->
+
+      <div
+        class="md:col-span-2 md:row-span-2
+               rounded-[2rem]
+               overflow-hidden
+               glass-card
+               relative group
+               min-h-[450px]"
+      >
+
+        <img
+          src="images/banner-02.jpg"
+          alt="Creative project"
+          class="w-full h-full
+                 object-cover
+                 transition-transform
+                 duration-700
+                 group-hover:scale-105"
+        />
+
+        <div
+          class="absolute bottom-0 left-0 right-0
+                 p-8
+                 bg-gradient-to-t
+                 from-black/80
+                 to-transparent
+                 text-white"
+        >
+
+          <h2
+            class="font-display-lg
+                   text-3xl
+                   md:text-5xl
+                   font-bold mb-2"
+          >
+            Full Stack Creativity.
+          </h2>
+
+          <p class="opacity-90 max-w-md">
+            Building modern digital experiences
+            from frontend to backend.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- Status -->
+
+      <div
+        class="rounded-[2rem]
+               p-6
+               bg-tertiary-container
+               text-white
+               flex flex-col
+               justify-between
+               min-h-[220px]"
+      >
+
+        <div class="flex justify-between">
+
+          <span class="material-symbols-outlined text-4xl">
+            rocket_launch
+          </span>
+
+          <span
+            class="bg-white/20
+                   px-3 py-1
+                   rounded-full
+                   text-xs font-bold"
+          >
+            AVAILABLE
+          </span>
+
+        </div>
+
+        <div>
+
+          <h3 class="text-2xl font-bold">
+            Status
+          </h3>
+
+          <p class="opacity-90">
+            Open for new opportunities.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- Featured -->
+
+      <div
+        class="rounded-[2rem]
+               p-6
+               bg-secondary-container
+               text-white
+               flex flex-col
+               justify-center
+               min-h-[220px]"
+      >
+
+        <span
+          class="material-symbols-outlined
+                 text-5xl mb-5"
+        >
+          web
+        </span>
+
+        <span
+          class="text-xs
+                 font-bold
+                 uppercase
+                 tracking-widest
+                 opacity-80"
+        >
+          Featured
+        </span>
+
+        <h3
+          class="text-2xl
+                 font-bold
+                 mt-2"
+        >
+          Full Stack Applications
+        </h3>
+
+      </div>
+
+
+      <!-- Toolkit -->
+
+      <div
+        class="md:col-span-2
+               rounded-[2rem]
+               p-6
+               bg-primary-container
+               text-white"
+      >
+
+        <h3 class="text-2xl font-bold mb-4">
+          Core Skills
+        </h3>
+
+        <div class="flex flex-wrap gap-2">
+
+          <span class="bg-white/10 px-3 py-2 rounded-full text-sm">
+            React
+          </span>
+
+          <span class="bg-white/10 px-3 py-2 rounded-full text-sm">
+            Angular
+          </span>
+
+          <span class="bg-white/10 px-3 py-2 rounded-full text-sm">
+            Node.js
+          </span>
+
+          <span class="bg-white/10 px-3 py-2 rounded-full text-sm">
+            Java
+          </span>
+
+          <span class="bg-white/10 px-3 py-2 rounded-full text-sm">
+            Spring Boot
+          </span>
+
+          <span class="bg-white/10 px-3 py-2 rounded-full text-sm">
+            Docker
+          </span>
+
+          <span class="bg-white/10 px-3 py-2 rounded-full text-sm">
+            Microservices
+          </span>
+          <span class="bg-white/10 px-3 py-2 rounded-full text-sm">
+            AWS
+          </span>
+          <span class="bg-white/10 px-3 py-2 rounded-full text-sm">
+            RestApi
+          </span>
+          <span class="bg-white/10 px-3 py-2 rounded-full text-sm">
+            MySQL
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         WORK
+    ================================================== -->
+
+    <section
+      id="work"
+      class="py-24
+             px-4 md:px-10
+             max-w-container-max
+             mx-auto"
+    >
+
+      <div
+        class="flex flex-col
+               md:flex-row
+               justify-between
+               items-end
+               mb-12
+               gap-6"
+      >
+
+        <div>
+
+          <h2
+            class="font-display-lg
+                   text-3xl
+                   md:text-4xl
+                   font-extrabold"
+          >
+            Recent Projects
+          </h2>
+
+          <p
+            class="text-on-surface-variant
+                   mt-2"
+          >
+            A collection of applications and digital
+            experiences.
+          </p>
+
+        </div>
+
+
+        <!-- Filters -->
+
+        <div
+          id="filterGroup"
+          class="flex flex-wrap
+                 gap-2
+                 bg-surface-container-low
+                 p-2
+                 rounded-full
+                 border border-outline-variant"
+        >
+
+          <button
+            class="filter-btn active
+                   px-5 py-2
+                   rounded-full
+                   bg-primary
+                   text-white
+                   text-sm font-semibold"
+            data-filter="all"
+          >
+            All
+          </button>
+
+          <button
+            class="filter-btn
+                   px-5 py-2
+                   rounded-full
+                   text-on-surface-variant
+                   text-sm font-semibold"
+            data-filter="web"
+          >
+            Web
+          </button>
+
+          <button
+            class="filter-btn
+                   px-5 py-2
+                   rounded-full
+                   text-on-surface-variant
+                   text-sm font-semibold"
+            data-filter="branding"
+          >
+            Other
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- Project Grid -->
+
+      <div
+        id="masonryGrid"
+        class="grid grid-cols-1
+               md:grid-cols-2
+               lg:grid-cols-3
+               gap-6"
+      >
+
+        <!-- Project 1 -->
+
+        <div
+          class="project-item
+                 group rounded-[2rem]
+                 overflow-hidden
+                 glass-card
+                 cursor-pointer"
+          data-category="web"
+        >
+
+          <div class="h-[320px] overflow-hidden">
+
+            <img
+              src="images/image-01.jpg"
+              alt="Web project"
+              class="w-full h-full
+                     object-cover
+                     group-hover:scale-110
+                     transition-transform
+                     duration-700"
+            />
+
+          </div>
+
+          <div class="p-6">
+
+            <span
+              class="text-primary
+                     text-xs
+                     font-bold
+                     uppercase
+                     tracking-widest"
+            >
+              Web Development
+            </span>
+
+            <h3
+              class="text-xl
+                     font-bold
+                     mt-2"
+            >
+              Modern Web Application
+            </h3>
+
+          </div>
+
+        </div>
+
+
+        <!-- Project 2 -->
+
+        <div
+          class="project-item
+                 group rounded-[2rem]
+                 overflow-hidden
+                 glass-card
+                 cursor-pointer"
+          data-category="web"
+        >
+
+          <div class="h-[320px] overflow-hidden">
+
+            <img
+              src="images/image-02.jpg"
+              alt="Dashboard project"
+              class="w-full h-full
+                     object-cover
+                     group-hover:scale-110
+                     transition-transform
+                     duration-700"
+            />
+
+          </div>
+
+          <div class="p-6">
+
+            <span
+              class="text-secondary
+                     text-xs
+                     font-bold
+                     uppercase
+                     tracking-widest"
+            >
+              Full Stack
+            </span>
+
+            <h3
+              class="text-xl
+                     font-bold
+                     mt-2"
+            >
+              Admin Dashboard
+            </h3>
+
+          </div>
+
+        </div>
+
+
+        <!-- Project 3 -->
+
+        <div
+          class="project-item
+                 group rounded-[2rem]
+                 overflow-hidden
+                 glass-card
+                 cursor-pointer"
+          data-category="branding"
+        >
+
+          <div class="h-[320px] overflow-hidden">
+
+            <img
+              src="images/image-03.jpg"
+              alt="Application project"
+              class="w-full h-full
+                     object-cover
+                     group-hover:scale-110
+                     transition-transform
+                     duration-700"
+            />
+
+          </div>
+
+          <div class="p-6">
+
+            <span
+              class="text-tertiary
+                     text-xs
+                     font-bold
+                     uppercase
+                     tracking-widest"
+            >
+              Application
+            </span>
+
+            <h3
+              class="text-xl
+                     font-bold
+                     mt-2"
+            >
+              Digital Experience
+            </h3>
+
+          </div>
+
+        </div>
+
+
+        <!-- Project 4 -->
+
+        <div
+          class="project-item
+                 group rounded-[2rem]
+                 overflow-hidden
+                 glass-card
+                 cursor-pointer"
+          data-category="web"
+        >
+
+          <div class="h-[320px] overflow-hidden">
+
+            <img
+              src="images/image-04.jpg"
+              alt="Frontend project"
+              class="w-full h-full
+                     object-cover
+                     group-hover:scale-110
+                     transition-transform
+                     duration-700"
+            />
+
+          </div>
+
+          <div class="p-6">
+
+            <span
+              class="text-primary
+                     text-xs
+                     font-bold
+                     uppercase
+                     tracking-widest"
+            >
+              Frontend
+            </span>
+
+            <h3
+              class="text-xl
+                     font-bold
+                     mt-2"
+            >
+              Responsive Interface
+            </h3>
+
+          </div>
+
+        </div>
+
+
+        <!-- Project 5 -->
+
+        <div
+          class="project-item
+                 group rounded-[2rem]
+                 overflow-hidden
+                 glass-card
+                 cursor-pointer"
+          data-category="branding"
+        >
+
+          <div class="h-[320px] overflow-hidden">
+
+            <img
+              src="images/image-05.jpg"
+              alt="Product project"
+              class="w-full h-full
+                     object-cover
+                     group-hover:scale-110
+                     transition-transform
+                     duration-700"
+            />
+
+          </div>
+
+          <div class="p-6">
+
+            <span
+              class="text-secondary
+                     text-xs
+                     font-bold
+                     uppercase
+                     tracking-widest"
+            >
+              Product
+            </span>
+
+            <h3
+              class="text-xl
+                     font-bold
+                     mt-2"
+            >
+              Digital Product
+            </h3>
+
+          </div>
+
+        </div>
+
+
+        <!-- Project 6 -->
+
+        <div
+          class="project-item
+                 group rounded-[2rem]
+                 overflow-hidden
+                 glass-card
+                 cursor-pointer"
+          data-category="web"
+        >
+
+          <div class="h-[320px] overflow-hidden">
+
+            <img
+              src="images/image-06.jpg"
+              alt="Portfolio project"
+              class="w-full h-full
+                     object-cover
+                     group-hover:scale-110
+                     transition-transform
+                     duration-700"
+            />
+
+          </div>
+
+          <div class="p-6">
+
+            <span
+              class="text-tertiary
+                     text-xs
+                     font-bold
+                     uppercase
+                     tracking-widest"
+            >
+              Portfolio
+            </span>
+
+            <h3
+              class="text-xl
+                     font-bold
+                     mt-2"
+            >
+              Portfolio Website
+            </h3>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         JOURNEY
+    ================================================== -->
+
+    <section
+      class="py-24
+             px-4 md:px-10
+             max-w-container-max
+             mx-auto"
+    >
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-16 text-center transition-all duration-700 opacity-100 translate-y-0">Our Journey</h2>
+      
+
+
+      <div class="relative">
+
+        <!-- Timeline -->
+
+        <div
+          class="absolute
+                 left-4 md:left-1/2
+                 top-0 bottom-0
+                 w-1
+                 kinetic-gradient
+                 opacity-30
+                 -translate-x-1/2"
+        ></div>
+
+
+        <!-- Experience 1 -->
+
+        <div
+          class="relative
+                 flex
+                 flex-col
+                 md:flex-row
+                 items-center
+                 justify-between
+                 mb-24"
+        >
+
+          <div
+            class="md:w-5/12
+                   text-left
+                   md:text-right
+                   pl-12 md:pl-0
+                   pr-8
+                   order-2 md:order-1"
+          >
+
+            <span
+              class="text-primary
+                     font-bold
+                     text-lg"
+            >
+              July 2023 - Present
+            </span>
+
+            <h3
+              class="text-xl
+                     font-bold
+                     mt-2"
+            >
+              Prolax IT Solutions Pvt Ltd
+            </h3>
+
+            <p class="text-on-surface-variant mt-1">
+              Associate Software Developer
+            </p>
+
+          </div>
+
+
+          <div
+            class="w-14 h-14
+                   rounded-full
+                   bg-white
+                   dark:bg-[#171c2d]
+                   border-4
+                   border-primary
+                   z-10
+                   flex
+                   items-center
+                   justify-center
+                   shadow-lg
+                   order-1 md:order-2
+                   mr-auto md:mr-0
+                   ml-0 md:ml-0"
+          >
+
+            <span class="material-symbols-outlined text-primary">
+              stars
+            </span>
+
+          </div>
+
+
+          <div class="md:w-5/12 order-3"></div>
+
+        </div>
+
+
+        <!-- Experience 2 -->
+
+        <div
+          class="relative
+                 flex
+                 flex-col
+                 md:flex-row
+                 items-center
+                 justify-between
+                 mb-24"
+        >
+
+          <div class="md:w-5/12 order-1"></div>
+
+
+          <div
+            class="w-14 h-14
+                   rounded-full
+                   bg-white
+                   dark:bg-[#171c2d]
+                   border-4
+                   border-secondary
+                   z-10
+                   flex
+                   items-center
+                   justify-center
+                   shadow-lg
+                   mr-auto md:mr-0
+                   order-1 md:order-2"
+          >
+
+            <span class="material-symbols-outlined text-secondary">
+              workspace_premium
+            </span>
+
+          </div>
+
+
+          <div
+            class="md:w-5/12
+                   text-left
+                   pl-12
+                   order-2 md:order-3"
+          >
+
+            <span
+              class="text-secondary
+                     font-bold
+                     text-lg"
+            >
+              Aug 2021 - Oct 2022
+            </span>
+
+            <h3
+              class="text-xl
+                     font-bold
+                     mt-2"
+            >
+              AJSPIRE Technologies Pvt Ltd
+            </h3>
+
+            <p class="text-on-surface-variant mt-1">
+              Full Stack Developer
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- Internship -->
+
+        <div
+          class="relative
+                 flex
+                 flex-col
+                 md:flex-row
+                 items-center
+                 justify-between"
+        >
+
+          <div
+            class="md:w-5/12
+                   text-left
+                   md:text-right
+                   pl-12 md:pl-0
+                   pr-8
+                   order-2 md:order-1"
+          >
+
+            <span
+              class="text-tertiary
+                     font-bold
+                     text-lg"
+            >
+              Jan 2021 - Jun 2021
+            </span>
+
+            <h3
+              class="text-xl
+                     font-bold
+                     mt-2"
+            >
+              Shilpra Web Technologies Pvt Ltd
+            </h3>
+
+            <p class="text-on-surface-variant mt-1">
+              Internship
+            </p>
+
+          </div>
+
+
+          <div
+            class="w-14 h-14
+                   rounded-full
+                   bg-white
+                   dark:bg-[#171c2d]
+                   border-4
+                   border-tertiary
+                   z-10
+                   flex
+                   items-center
+                   justify-center
+                   shadow-lg
+                   mr-auto md:mr-0
+                   order-1 md:order-2"
+          >
+
+            <span class="material-symbols-outlined text-tertiary">
+              bolt
+            </span>
+
+          </div>
+
+
+          <div class="md:w-5/12 order-3"></div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================
+         CONTACT
+    ================================================== -->
+
+    <section
+      id="contact"
+      class="py-24 px-6"
+    >
+
+      <div class="max-w-5xl mx-auto">
+
+        <!-- Heading -->
+
+        <div class="text-center mb-12">
+
+          <p
+            class="text-primary
+                   text-sm
+                   font-semibold
+                   uppercase
+                   tracking-[0.2em]
+                   mb-3"
+          >
+            Contact
+          </p>
+
+          <h2
+            class="text-4xl
+                   md:text-5xl
+                   font-bold
+                   mb-4"
+          >
+            Let's Connect
+          </h2>
+
+          <p
+            class="text-on-surface-variant
+                   max-w-xl mx-auto"
+          >
+            Looking for a Full Stack Developer?
+            Let's connect and discuss opportunities,
+            projects, or ideas.
+          </p>
+
+        </div>
+
+
+        <!-- Contact Card -->
+
+        <div
+          class="glass-card
+                 rounded-[2rem]
+                 p-8 md:p-12"
+        >
+
+          <div
+            class="grid
+                   grid-cols-1
+                   md:grid-cols-2
+                   gap-6"
+          >
+
+            <!-- Email -->
+
+            <a
+              
+              class="group
+                     flex items-center gap-4
+                     p-5 rounded-2xl
+                     bg-primary/5
+                     border border-primary/10
+                     hover:bg-primary/10
+                     hover:-translate-y-1
+                     transition-all"
+            >
+
+              <div
+                class="w-12 h-12
+                       rounded-xl
+                       bg-primary/10
+                       flex items-center
+                       justify-center
+                       text-primary
+                       group-hover:scale-110
+                       transition-transform"
+              >
+
+                <span class="material-symbols-outlined">
+                  mail
+                </span>
+
+              </div>
+
+              <div>
+
+                <p
+                  class="text-xs
+                         text-on-surface-variant"
+                >
+                  Email
+                </p>
+
+                <p class="font-medium">
+                  prajapatimukesh020196@email.com
+                </p>
+
+              </div>
+
+              <span
+                class="material-symbols-outlined
+                       ml-auto
+                       text-primary"
+              >
+                arrow_outward
+              </span>
+
+            </a>
+
+
+            <!-- LinkedIn -->
+
+            <a
+              href="https://www.linkedin.com/in/mukesh-prajapati-mukesh/"
+              target="_blank"
+              class="group
+                     flex items-center gap-4
+                     p-5 rounded-2xl
+                     bg-primary/5
+                     border border-primary/10
+                     hover:bg-primary/10
+                     hover:-translate-y-1
+                     transition-all"
+            >
+
+              <div
+                class="w-12 h-12
+                       rounded-xl
+                       bg-primary/10
+                       flex items-center
+                       justify-center
+                       text-primary
+                       group-hover:scale-110
+                       transition-transform"
+              >
+
+                <span class="material-symbols-outlined">
+                  person
+                </span>
+
+              </div>
+
+              <div>
+
+                <p class="text-xs text-on-surface-variant">
+                  LinkedIn
+                </p>
+
+                <p class="font-medium">
+                  Connect with me
+                </p>
+
+              </div>
+
+              <span
+                class="material-symbols-outlined
+                       ml-auto
+                       text-primary"
+              >
+                arrow_outward
+              </span>
+
+            </a>
+
+
+            <!-- GitHub -->
+
+            <a
+              href="https://github.com/Mukesh1286"
+              target="_blank"
+              class="group
+                     flex items-center gap-4
+                     p-5 rounded-2xl
+                     bg-primary/5
+                     border border-primary/10
+                     hover:bg-primary/10
+                     hover:-translate-y-1
+                     transition-all"
+            >
+
+              <div
+                class="w-12 h-12
+                       rounded-xl
+                       bg-primary/10
+                       flex items-center
+                       justify-center
+                       text-primary
+                       group-hover:scale-110
+                       transition-transform"
+              >
+
+                <span class="material-symbols-outlined">
+                  code
+                </span>
+
+              </div>
+
+              <div>
+
+                <p class="text-xs text-on-surface-variant">
+                  GitHub
+                </p>
+
+                <p class="font-medium">
+                  View my projects
+                </p>
+
+              </div>
+
+              <span
+                class="material-symbols-outlined
+                       ml-auto
+                       text-primary"
+              >
+                arrow_outward
+              </span>
+
+            </a>
+
+
+            <!-- Resume -->
+
+            <a
+              href="https://drive.google.com/file/d/1a-b1c3QQuWI7s-E-OIJ-4aek4Y_s5akv/view?usp=sharing"
+              target="_blank"
+              class="group
+                     flex items-center gap-4
+                     p-5 rounded-2xl
+                     bg-primary/5
+                     border border-primary/10
+                     hover:bg-primary/10
+                     hover:-translate-y-1
+                     transition-all"
+            >
+
+              <div
+                class="w-12 h-12
+                       rounded-xl
+                       bg-primary/10
+                       flex items-center
+                       justify-center
+                       text-primary
+                       group-hover:scale-110
+                       transition-transform"
+              >
+
+                <span class="material-symbols-outlined">
+                  description
+                </span>
+
+              </div>
+
+              <div>
+
+                <p class="text-xs text-on-surface-variant">
+                  Resume
+                </p>
+
+                <p class="font-medium">
+                  View my resume
+                </p>
+
+              </div>
+
+              <span
+                class="material-symbols-outlined
+                       ml-auto
+                       text-primary"
+              >
+                arrow_outward
+              </span>
+
+            </a>
+
+          </div>
+
+
+          <!-- CTA -->
+
+          <div
+            class="text-center
+                   mt-10
+                   pt-8
+                   border-t
+                   border-primary/10"
+          >
+
+            <p
+              class="text-on-surface-variant
+                     mb-4"
+            >
+              Interested in working together?
+            </p>
+
+            <a
+              
+              class="inline-flex
+                     items-center
+                     gap-2
+                     px-7 py-3
+                     rounded-full
+                     bg-primary
+                     text-white
+                     font-semibold
+                     hover:opacity-90
+                     transition-all"
+            >
+
+              Let's Talk
+
+              <span
+                class="material-symbols-outlined text-lg"
+              >
+                send
+              </span>
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ==================================================
+       FOOTER
+  ================================================== -->
+
+  <footer
+    class="border-t
+           border-primary/10
+           py-6
+           mt-10"
+  >
+
+    <p
+      class="text-center
+             text-sm
+             text-on-surface-variant"
+    >
+
+      © 2026
+
+      <span class="text-primary font-semibold">
+        Mukesh Prajapati
+      </span>
+
+      · Full Stack Developer ·
+      All Rights Reserved.
+
+    </p>
+
+  </footer>
+
+
+  <!-- ==================================================
+       LIGHTBOX
+  ================================================== -->
+
+  <div
+    class="lightbox"
+    id="lightbox"
+  >
+
+    <button
+      class="close-btn"
+      id="closeLightbox"
+    >
+      ✕
+    </button>
+
+    <img
+      id="lightboxImg"
+      src=""
+      alt="Enlarged project"
+    />
+
+  </div>
+
+
+  <!-- ==================================================
+       JAVASCRIPT
+  ================================================== -->
+
+  <script>
+
+    /* ==========================================
+       THEME
+    ========================================== */
+
+    const themeToggle =
+      document.getElementById("themeToggle");
+
+    const themeIcon =
+      document.getElementById("themeIcon");
+
+
+    function updateThemeIcon() {
+
+      const isDark =
+        document.documentElement
+          .classList
+          .contains("dark");
+
+      themeIcon.textContent =
+        isDark
+          ? "light_mode"
+          : "dark_mode";
+
+    }
+
+
+    /* Load saved theme */
+
+    const savedTheme =
+      localStorage.getItem("theme");
+
+
+    if (savedTheme === "dark") {
+
+      document.documentElement
+        .classList
+        .add("dark");
+
+    } else {
+
+      document.documentElement
+        .classList
+        .remove("dark");
+
+    }
+
+
+    updateThemeIcon();
+
+
+    /* Toggle theme */
+
+    themeToggle.addEventListener(
+      "click",
+      () => {
+
+        document.documentElement
+          .classList
+          .toggle("dark");
+
+
+        const isDark =
+          document.documentElement
+            .classList
+            .contains("dark");
+
+
+        localStorage.setItem(
+          "theme",
+          isDark
+            ? "dark"
+            : "light"
+        );
+
+
+        updateThemeIcon();
+
+      }
+    );
+
+
+    /* ==========================================
+       MOBILE MENU
+    ========================================== */
+
+    const menuToggle =
+      document.getElementById("menuToggle");
+
+    const mobileMenu =
+      document.getElementById("mobileMenu");
+
+
+    menuToggle.addEventListener(
+      "click",
+      () => {
+
+        mobileMenu
+          .classList
+          .toggle("show");
+
+      }
+    );
+
+
+    /* Close mobile menu after click */
+
+    mobileMenu
+      .querySelectorAll("a")
+      .forEach(link => {
+
+        link.addEventListener(
+          "click",
+          () => {
+
+            mobileMenu
+              .classList
+              .remove("show");
+
+          }
+        );
+
+      });
+
+
+    /* ==========================================
+       PROJECT FILTER
+    ========================================== */
+
+    const filterButtons =
+      document.querySelectorAll(
+        ".filter-btn"
+      );
+
+    const projects =
+      document.querySelectorAll(
+        ".project-item"
+      );
+
+
+    filterButtons.forEach(button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          const filter =
+            button.dataset.filter;
+
+
+          /* Reset buttons */
+
+          filterButtons.forEach(btn => {
+
+            btn.classList.remove(
+              "bg-primary",
+              "text-white"
+            );
+
+            btn.classList.add(
+              "text-on-surface-variant"
+            );
+
+          });
+
+
+          /* Active button */
+
+          button.classList.remove(
+            "text-on-surface-variant"
+          );
+
+          button.classList.add(
+            "bg-primary",
+            "text-white"
+          );
+
+
+          /* Filter projects */
+
+          projects.forEach(project => {
+
+            const category =
+              project.dataset.category;
+
+
+            if (
+              filter === "all" ||
+              category === filter
+            ) {
+
+              project.style.display =
+                "block";
+
+            } else {
+
+              project.style.display =
+                "none";
+
+            }
+
+          });
+
+        }
+      );
+
+    });
+
+
+    /* ==========================================
+       LIGHTBOX
+    ========================================== */
+
+    const lightbox =
+      document.getElementById("lightbox");
+
+    const lightboxImg =
+      document.getElementById("lightboxImg");
+
+    const closeLightbox =
+      document.getElementById(
+        "closeLightbox"
+      );
+
+
+    document
+      .querySelectorAll(".project-item img")
+      .forEach(image => {
+
+        image.addEventListener(
+          "click",
+          () => {
+
+            lightboxImg.src =
+              image.src;
+
+            lightbox.classList.add(
+              "active"
+            );
+
+          }
+        );
+
+      });
+
+
+    closeLightbox.addEventListener(
+      "click",
+      () => {
+
+        lightbox.classList.remove(
+          "active"
+        );
+
+      }
+    );
+
+
+    lightbox.addEventListener(
+      "click",
+      event => {
+
+        if (
+          event.target === lightbox
+        ) {
+
+          lightbox.classList.remove(
+            "active"
+          );
+
+        }
+
+      }
+    );
+
+
+    /* ESC closes lightbox */
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "Escape"
+        ) {
+
+          lightbox.classList.remove(
+            "active"
+          );
+
+        }
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>
